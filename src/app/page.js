@@ -1,113 +1,284 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link';
+
+import Navbar from './componants/navbar/navbar'
+import Footer from './componants/footer/footer';
+import ScrollTop from './componants/scrollTop';
+import AppHeroText from './componants/app/appHeroText';
+import About from './componants/app/about';
+
+import {FiAirplay,PiBrowsersBold, FiEye, BsBootstrapFill, BiWater,FiMoon, TbIcons,BiCube, BsBezier2,BiLogoSass,PiSealCheckFill,FiSettings,SiPhp,BsFillFileEarmarkImageFill,FiCamera,FaGooglePlay,FiGitCommit,BsCode,MdUpdate,RiUserHeartFill,SiNextdotjs,BiLogoReact} from "./assets/icons/vander"
 
 export default function Home() {
+  let templateData =[
+    {
+        image:"/images/demos/business.png",
+        title:"BUSINESS",
+        link:'/index-business'
+    },
+    {
+        image:"/images/demos/digital-agency.png",
+        title:"DIGITAL AGENCY",
+        link:'/index-digital-agency'
+    },
+    {
+        image:"/images/demos/startup.png",
+        title:"STARTUP",
+        link:"/index-startup"
+    },
+    {
+        image:"/images/demos/saas.png",
+        title:"SAAS",
+        link:"/index-saas"
+    },
+    {
+        image:"/images/demos/marketing.png",
+        title:"MARKETING",
+        link:"/index-marketing"
+    },
+    {
+        image:"/images/demos/crypto.png",
+        title:"CRYPTOCURRENCY",
+        link:"/index-cryptocurrency"
+    },
+    {
+        image:"/images/demos/gym.png",
+        title:"GYM & FITNESS",
+        link:"/index-gym"
+    },
+    {
+        image: "/images/demos/restaurant.png",
+        title:"RESTAURANT",
+        link:"/index-restaurant"
+    },
+    {
+        image:"/images/demos/job.png",
+        title:"JOB & CAREERS",
+        link:"/index-job",
+        tag1:"Onepage & Multi-use"
+    },
+    {
+        image:"/images/demos/personal.png",
+        title:"PERSONAL",
+        link:"/index-personal"
+    },
+    {
+        image:"/images/demos/portfolio.png",
+        title:"PORTFOLIO",
+        link:"/index-portfolio"
+    },
+    {
+        image:"/images/demos/portfolio-agency.png",
+        title:"PORTFOLIO AGENCY",
+        link:"/index-portfolio-agency"
+    },
+    {
+        image:"/images/demos/studio.png",
+        title:"STUDIO",
+        link:"/index-studio"
+    },
+    {
+        image:"/images/demos/business.png",
+        title:"BUSINESS",
+        link:"/index-multi-business",
+        tag1:"MULTI-USE"
+    },
+    {
+        image:"/images/demos/photography.png",
+        title:"PHOTOGRAPHY",
+        link:"/index-photography",
+        tag1:"MULTI-USE"
+    },
+    {
+        image:"/images/demos/cowork.png",
+        title:"CO-WORKING SPACE",
+        link:"/index-co-working",
+    },
+    {
+        image:"/images/demos/blog.png",
+        title:"CMINIMAL BLOG",
+        link:"/index-blog",
+        tag1:"MULTI-USE",
+    },
+]
+let featuresData = [
+    {
+        icon:SiNextdotjs,
+        title:'Next Js 13.5.5'
+    },
+    {
+        icon:SiNextdotjs,BiLogoReact,
+        title:'React Js 18.2.0'
+    },
+    {
+        icon:BsBootstrapFill,
+        title:'Bootstrap 5.3.2'
+    },
+    {
+        icon:BiLogoSass,
+        title:'Built With SCSS'
+    },
+    {
+        icon:FiAirplay,
+        title:'Fully Responsive'
+    },
+    {
+        icon:PiBrowsersBold,
+        title:'Browser Compatibility'
+    },
+    {
+        icon:FiEye,
+        title:'Retina Ready'
+    },
+    {
+        icon:BiWater,
+        title:'Parallax Demos'
+    },
+    {
+        icon:FiMoon,
+        title:'Dark Supported Theme'
+    },
+    {
+        icon:TbIcons,
+        title:'React Icons'
+    },
+    {
+        icon:BiCube,
+        title:'Material Design Icon'
+    },
+    {
+        icon:FiSettings,
+        title:'Easy to customize'
+    },
+    {
+        icon:BsFillFileEarmarkImageFill,
+        title:'Free Illustrator Image'
+    },
+    {
+        icon:FiCamera,
+        title:'Free Images'
+    },
+    {
+        icon:FaGooglePlay,
+        title:'Free Google Fonts'
+    },
+    {
+        icon:FiGitCommit,
+        title:'Well Commented Code'
+    },
+    {
+        icon:BsCode,
+        title:'Clean Code'
+    },
+    {
+        icon:MdUpdate,
+        title:'Free Updates'
+    },
+    {
+        icon:RiUserHeartFill,
+        title:'Developer Friendly'
+    },
+]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <Navbar navClass="defaultscroll sticky" manuClass="navigation-menu nav-right" smallButton={false}/>
+
+      <section className="bg-half-170 pb-0 d-table w-100 bg-soft-primary" style={{backgroundImage:'url("/images/live/home-shape.png")'}}  id="home">
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-lg-12 text-center">
+                    <div className="title-heading">
+                        <Image src="/images/logo-icon-80.png" width={90} height={80} alt=""/>
+                        <AppHeroText/>
+                        <p className="para-desc text-muted mx-auto mb-0">Start working with Fronter one page and multipurpose parallax template that can provide everything you need.</p>
+                        <div className="mt-4 pt-2"> 
+                            <Link href="#landing" className="btn btn-primary rounded mouse-down mr-2 mb-2">View Demos</Link>
+                        </div>
+
+                        <div className="mt-5 d-md-block d-none position-relative" style={{zIndex: "1"}}>
+                            <About/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-12 px-0">
+                    <div className="live-preview mt-4">
+                        <Image src="/images/live/hero.png" width={0} height={0} sizes='100vw' style={{width:"100%", height:"auto"}} alt="" className="img-fluid position-relative border-bottom"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="position-relative">
+            <div className="home-shape-arrow">
+                {/* <Link href="/features"><i className="mdi mdi-arrow-down arrow-icon text-dark h5 shadow-md"></i></Link> */}
+                <Link href="features"><i className="mdi mdi-arrow-down arrow-icon text-dark h5 shadow-md"></i></Link>
+            </div>
+        </div>
+        <section className="section" id="landing">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-12">
+                        <div className="section-title mb-4 mb-md-5 text-center">
+                            <h4>Template Demos</h4>
+                        </div>
+                    </div>
+                </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+                <div className="row">
+                    {templateData.map((item,index)=>{
+                        return(
+                            <div className="col-md-6 col-12 mt-5" key={index}>
+                                <div className="text-center">
+                                    <div className="demos-box rounded-md shadow-md text-center border-0 overflow-hidden">
+                                        <Link href={item.link} target="_blank">
+                                            <Image src={item.image}  width={0} height={0} sizes='100vw' style={{width:"100%", height:'auto'}} className="img-fluid" alt="demo-img"/>
+                                        </Link>
+                                    </div>
+                                    <h6 className="title text-uppercase mt-4">{item.title} {item?.tag2 ? <span className="badge rounded-lg bg-danger ms-2">{item.tag2}</span> :""} {item?.tag1 ? <span className="badge rounded-lg bg-warning ms-2">{item.tag1}</span> :""} </h6>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </section>
+        <section className="section bg-light" id="features">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-12">
+                        <div className="section-title mb-4 text-center">
+                            <h4>Template Features</h4>
+                        </div>
+                    </div>
+                </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+                <div className="row">
+                    {featuresData.map((item, index) =>{
+                        let Icon = item.icon
+                        return(
+                            <div className="col-lg-3 col-md-6 mt-4 pt-2" key={index}>
+                                <div className="d-flex align-items-center features feature-primary">
+                                    <div className="feature-icon text-center rounded">
+                                        <Icon className=" h4 icon mb-0"/>
+                                    </div>
+                                    <div className="flex-1 ms-3">
+                                        <h6 className="mt-0">{item.title}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </section>
+        <Footer/>
+        <ScrollTop/>
+    </>
+  )
 }
